@@ -1,5 +1,5 @@
 Given /^I am on the homepage$/ do
-  visit('/projects') 
+  visit('/') 
 end
 
 When /^I navigate to the new project creation page$/ do 
