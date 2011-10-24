@@ -2,8 +2,11 @@ Given /^I am on the homepage$/ do
   visit('/projects') 
 end
 
-When /^I create a new project$/ do
-  click_link('New Project') 
+When /^I navigate to the new project creation page$/ do 
+  click_link('New Project')
+end
+
+When /^I create a new project$/ do 
   fill_in('Name', :with => 'TextMate 2')
   click_button('Create Project')  
 end
