@@ -1,3 +1,10 @@
+def verify_project_page(project_name)
+  current_path.should == project_path(Project.find_by_name!(project_name))
+  page.should have_content(project_name + " - Projects - Ticketee")
+end
+
+
+
 Given /^I am on the homepage$/ do
   visit('/') 
 end
@@ -16,8 +23,7 @@ Then /^I should be shown the project created verification$/ do
 end
 
 Then /^I should be on the project page for the new project$/ do
-  current_path.should == project_path(Project.find_by_name!('TextMate 2'))
-  page.should have_content("TextMate 2 - Projects - Ticketee")  
+  verify_project_page('TextMate 2')
 end
 
 When /^I try to create a project without a name$/ do
@@ -45,6 +51,5 @@ When /^I select that project$/ do
 end
 
 Then /^I should go to that project's page$/ do
-  current_path.should == project_path(Project.find_by_name!('TextMate 2'))
-  page.should have_content("TextMate 2 - Projects - Ticketee")
+  verify_project_page('TextMate 2')
 end
