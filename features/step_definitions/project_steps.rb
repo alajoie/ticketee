@@ -53,3 +53,25 @@ end
 Then /^I should go to that project's page$/ do
   verify_project_page('TextMate 2')
 end
+
+Given /^I am on that project's page$/ do
+  visit(project_path(Project.find_by_name!('TextMate 2')))
+end
+
+When /^I go to the project's edit page$/ do
+  click_link('Edit Project')
+end
+
+When /^I update the project information$/ do
+  fill_in('Name', :with => 'TextMate 2 beta')
+  click_button('Update Project')
+end
+
+Then /^I should get an update verification message$/ do
+  page.should have_content("Project has been updated.") 
+end
+
+Then /^I should be on the updated project's page$/ do
+  verify_project_page('TextMate 2 beta') 
+end
+
