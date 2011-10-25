@@ -31,3 +31,20 @@ end
 Then /^I should be told that the name is required\.$/ do
   page.should have_content("Name can't be blank")
 end
+
+Given /^there is an existing project$/ do
+  Factory(:project, :name => 'TextMate 2')
+end
+
+Then /^I should see that project listed$/ do
+  page.should have_content("TextMate 2")
+end
+
+When /^I select that project$/ do
+  click_link('TextMate 2')
+end
+
+Then /^I should go to that project's page$/ do
+  current_path.should == project_path(Project.find_by_name!('TextMate 2'))
+  page.should have_content("TextMate 2 - Projects - Ticketee")
+end
