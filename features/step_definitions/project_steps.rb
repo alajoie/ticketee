@@ -75,3 +75,11 @@ Then /^I should be on the updated project's page$/ do
   verify_project_page('TextMate 2 beta') 
 end
 
+When /^I update the project with invalid information$/ do
+  fill_in('Name', :with => '')
+  click_button('Update Project')
+end
+
+Then /^I should be told that the project has not been updated$/ do
+  page.should have_content("Project has not been updated.")
+end
