@@ -83,3 +83,17 @@ end
 Then /^I should be told that the project has not been updated$/ do
   page.should have_content("Project has not been updated.")
 end
+
+When /^I delete the project$/ do
+  click_link('Delete Project')
+end
+
+Then /^I should see the project deletion message$/ do
+  page.should have_content("Project has been deleted.")
+end
+
+Then /^the project should no longer be in the project listing$/ do
+  current_path.should == projects_path
+  page.should_not have_content("TextMate 2") 
+end
+
