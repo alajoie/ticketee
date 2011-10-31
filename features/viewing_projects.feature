@@ -8,9 +8,9 @@ Feature: Viewing projects
 
   Scenario: Listing existing projects
     When I am on the homepage
-    Then I should see that project listed
+    Then I should see the existing project listed
 
   Scenario: Going to a project's page from the list
     And I am on the homepage
-    When I select that project
-    Then I should go to that project's page
+    When I select the existing project
+    Then I should go to the existing project's page

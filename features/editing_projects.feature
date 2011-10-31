@@ -5,7 +5,7 @@ Feature: Editing Projects
 
   Background: 
     Given there is an existing project
-    And I am on that project's page
+    And I am on the existing project's page
     When I go to the project's edit page
 
   Scenario: Updating a project

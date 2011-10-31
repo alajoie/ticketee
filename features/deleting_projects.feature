@@ -5,7 +5,7 @@ Feature: Deleting projects
 
   Background:
     Given there is an existing project
-    And I am on that project's page
+    And I am on the existing project's page
 
   Scenario: Deleting a project
     When I delete the project

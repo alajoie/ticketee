@@ -42,19 +42,19 @@ Given /^there is an existing project$/ do
   Factory(:project, :name => 'TextMate 2')
 end
 
-Then /^I should see that project listed$/ do
+Then /^I should see the existing project listed$/ do
   page.should have_content("TextMate 2")
 end
 
-When /^I select that project$/ do
+When /^I select the existing project$/ do
   click_link('TextMate 2')
 end
 
-Then /^I should go to that project's page$/ do
+Then /^I should go to the existing project's page$/ do
   verify_project_page('TextMate 2')
 end
 
-Given /^I am on that project's page$/ do
+Given /^I am on the existing project's page$/ do
   visit(project_path(Project.find_by_name!('TextMate 2')))
 end
 
