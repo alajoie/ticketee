@@ -18,3 +18,7 @@ Scenario: Creating a ticket without valid attributes fails
 	Then I should see a message informing me the ticket has not been created
 	And I should see messages informing me of the invalidly entered attributes
 
+Scenario: Description must be longer than 10 character
+	When I try to create a ticket with a too short description
+	Then I should see a message informing me the ticket has not been created
+	And I should see a message informing me that the Description is too short

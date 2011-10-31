@@ -25,3 +25,12 @@ Then /^I should see messages informing me of the invalidly entered attributes$/ 
 	page.should have_content("Description can't be blank")
 end
 
+When /^I try to create a ticket with a too short description$/ do
+	fill_in("Title", :with => "Non-standards compliance")
+	fill_in("Description", :with => "it sucks")
+	click_button('Create Ticket')
+end
+
+Then /^I should see a message informing me that the Description is too short$/ do
+	page.should have_content("Description is too short")
+end
