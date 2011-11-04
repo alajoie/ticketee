@@ -1,5 +1,5 @@
 def init_values
-  @project_title = "TextMate 2"
+  @project_name = "TextMate 2"
   @orig_ticket_title = "Make it shiny!"
   @updated_ticket_title = "Make it really shiny!"
   @update_confirmation = "Ticket has been updated."
@@ -8,7 +8,7 @@ end
 
 Given /^an existing project with a ticket$/ do
   init_values
-  @project_with_ticket = Factory(:project, :name =>  @project_title)
+  @project_with_ticket = Factory(:project, :name =>  @project_name)
   @project_with_ticket.tickets.create!(:title => @orig_ticket_title, :description => "Gradients! Starbursts! Oh my!")
 end
 
